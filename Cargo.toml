@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 rand = "0.10.0"
 crossbeam-queue = "0.3.12"
-tokio = "1.0.0"
-tokio-util = "0.7.0"
-tokio-stream = "0.1"
+tokio = { version = "1.53.1", features = ["full"]}
+tokio-util = "0.7.19"
+tokio-stream = "0.1.19"
+log = "0.4.20"

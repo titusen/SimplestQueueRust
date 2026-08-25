@@ -7,6 +7,8 @@ fn main() {
     println!("Connecting to queue sender at {}", address);
     let mut stream = TcpStream::connect(address).expect("Failed to connect to queue sender");
 
+    let mut counter = 0;
+
     println!("Connected! Waiting for messages...");
     
     let mut buffer = [0; 1024];
@@ -19,6 +21,8 @@ fn main() {
             Ok(n) => {
                 let message = String::from_utf8_lossy(&buffer[..n]);
                 println!("Received: {}", message);
+                counter += 1;
+                println!("Total messages received: {}", counter);
             }
             Err(err) => {
                 eprintln!("Failed to receive message: {}", err);
